@@ -20,7 +20,8 @@ public class ReporteService {
     }
 
     public List<Reporte> buscarTodos(){
-        return (List<Reporte>) this.reporteRepositoryImpl.findAll();
+        //return (List<Reporte>) this.reporteRepositoryImpl.findAll();
+        return this.reporteRepositoryImpl.findAll().list();
     }
 
     public Reporte buscarPorId(Integer id){
