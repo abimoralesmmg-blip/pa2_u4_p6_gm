@@ -1,7 +1,10 @@
-package ec.com.uce.interceptor;
+package ec.com.uce.application.interceptor;
+
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Arrays;
-import ec.com.uce.domain.model.Auditoria;
+
+//import ec.com.uce.domain.model.Auditoria;
 import jakarta.inject.Inject;
 import jakarta.interceptor.AroundInvoke;
 import jakarta.interceptor.Interceptor;
@@ -11,13 +14,15 @@ import jakarta.interceptor.InvocationContext;
 @MedirTiempo
 public class MedirTiempoInterceptor {
 
-    @Inject
-    private AuditoriaService auditoriaService;
+    /*@Inject
+    private AuditoriaService auditoriaService;*/
 
     @AroundInvoke
     public Object medir(InvocationContext context)throws Exception{
 
-         String nombreMetodo = context.getMethod().getName();
+
+
+        String nombreMetodo = context.getMethod().getName();
  
         Long tiempoInicio = System.currentTimeMillis();
         System.out.println("Iniciando metodo " + nombreMetodo);
@@ -29,7 +34,9 @@ public class MedirTiempoInterceptor {
         System.out.println("Tiempo final de ejecucion: " + nombreMetodo + " tiempo " + tiempo + "ms");
  
         return result;
-        LocalDateTime fechaHoraInicio = LocalDateTime.now();
+
+        /*LocalDateTime fechaHoraInicio = LocalDateTime.now();
+        long tiempoInicio = System.currentTimeMillis();
 
         Object resultado;
         try {
@@ -41,6 +48,7 @@ public class MedirTiempoInterceptor {
             long tiempoEjecucionMs = tiempoFin - tiempoInicio;
 
             
+            String nombreMetodo = context.getMethod().getName(); 
             
             
             Object[] parametros = context.getParameters();
@@ -55,7 +63,7 @@ public class MedirTiempoInterceptor {
 
             this.auditoriaService.guardar(auditoria);
     }
-    return resultado;
+    return resultado;*/
 
 }
 }
