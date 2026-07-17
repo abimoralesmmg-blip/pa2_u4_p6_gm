@@ -38,7 +38,6 @@ public class ProyectoService {
             proyectoBase.setNombre(proyectoActualizado.getNombre());
             proyectoBase.setEstado(proyectoActualizado.getEstado());
             proyectoBase.setFechaInicio(proyectoActualizado.getFechaInicio());
-            // No se necesita persist/merge explícito por el @Transactional
         }
     }
 
